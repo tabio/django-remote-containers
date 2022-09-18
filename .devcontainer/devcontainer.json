@@ -1,0 +1,14 @@
+{
+  "name": "django sample",
+  "dockerComposeFile": [
+    "docker-compose.yml"
+  ],
+  "service": "django-sample",
+  "workspaceFolder": "/opt/app/src",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/opt/app/src,type=bind,consistency=cached"
+  ],
+  "extensions": [
+    "ms-python.python"
+  ]
+}

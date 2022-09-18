@@ -1,0 +1,21 @@
+version: '3'
+services:
+  django-sample:
+    container_name: 'django-sample'
+    build: .
+    volumes:
+      - ../:/opt/app/src
+    tty: true
+  db:
+    image: "mysql:8"
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
+    environment:
+      MYSQL_DATABASE: "testdb"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
+      MYSQL_ROOT_PASSWORD: "password"
+    ports:
+      - 3306:3306
+    volumes:
+      - "../mysql:/var/lib/mysql"
+    tty: true
